@@ -11,4 +11,5 @@ jobs:
         # https://github.com/actions/checkout
       - uses: actions/checkout@v3
 
+      - run: make install
       - run: make lint
