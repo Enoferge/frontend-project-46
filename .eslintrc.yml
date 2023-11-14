@@ -1,6 +1,7 @@
 env:
   node: true
   es2021: true
+  jest: true
 extends: airbnb-base
 parserOptions:
   ecmaVersion: latest
@@ -15,3 +16,4 @@ rules:
       "error",
       { "allowParens": true, "onlyOneSimpleParam": true }
   ]
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }] # allow doubled underline for two constants
