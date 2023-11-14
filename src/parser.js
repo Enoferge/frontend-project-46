@@ -3,9 +3,8 @@ import path from 'path';
 import { cwd } from 'process';
 
 export default (filePath) => {
-  const currentDir = cwd();
   const extension = filePath.split('.').pop();
-  const preparedFilePath = path.resolve(currentDir, filePath);
+  const preparedFilePath = path.resolve(cwd(), filePath);
   const data = readFileSync(preparedFilePath);
 
   if (extension === 'json') {
