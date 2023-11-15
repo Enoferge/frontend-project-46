@@ -4,5 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/8f1408378a9b1d2ddee9/maintainability)](https://codeclimate.com/github/Enoferge/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/8f1408378a9b1d2ddee9/test_coverage)](https://codeclimate.com/github/Enoferge/frontend-project-46/test_coverage)
 
-* Asciinema for main function demonstration:
+* Asciinema for flat json files:
 https://asciinema.org/a/gMlGLdAiIsfvpij1QkHIrPwRM
+* Asciinema for flat yaml files:
+https://asciinema.org/a/zOcxnxzMIGD7P4UMxVbT9EkcB
