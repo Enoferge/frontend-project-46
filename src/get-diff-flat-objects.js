@@ -1,4 +1,4 @@
-const getDiff = (data1, data2) => {
+export default (data1, data2) => {
   const data2Copy = { ...data2 };
   const list = [];
 
@@ -35,5 +35,3 @@ const getDiff = (data1, data2) => {
 
   return `{\n${listToString}}`;
 };
-
-export default getDiff;

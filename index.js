@@ -1,7 +1,6 @@
 import { Command } from 'commander';
 
-import parser from './src/parser.js';
-import getDiff from './src/get-diff-plain-files.js';
+import getDiff from './src/get-diff-flat-files.js';
 
 const program = new Command();
 
@@ -13,10 +12,7 @@ program
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format <type>', 'output format')
   .action((filepath1, filepath2) => {
-    const data1 = parser(filepath1);
-    const data2 = parser(filepath2);
-
-    const result = getDiff(data1, data2);
+    const result = getDiff(filepath1, filepath2);
     console.log(result);
   });
 

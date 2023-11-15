@@ -1,9 +1,5 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import getAbsFixturePath from '../helpers/get-abs-fixture-path.js';
 import parser from '../src/parser.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const resultExpected1 = {
   timeout: 20,
@@ -18,12 +14,10 @@ const resultExpected2 = {
   follow: false,
 };
 
-const getAbsPath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-
 test('parse default file1', () => {
-  expect(parser(getAbsPath('filepath1.json'))).toEqual(resultExpected1);
+  expect(parser(getAbsFixturePath('file1.json'))).toEqual(resultExpected1);
 });
 
 test('parse default file2', () => {
-  expect(parser(getAbsPath('filepath2.json'))).toEqual(resultExpected2);
+  expect(parser(getAbsFixturePath('file2.json'))).toEqual(resultExpected2);
 });
