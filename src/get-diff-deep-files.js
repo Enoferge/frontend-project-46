@@ -1,13 +1,11 @@
 import parser from './parser.js';
-
-const getDiffDeepObjects = (data1, data2) => {
-  console.log(data1);
-  console.log(data2);
-};
+import getDiffDeepObjects from './get-diff-deep-objects.js';
 
 export default (filePath1, filePath2) => {
   const data1 = parser(filePath1);
   const data2 = parser(filePath2);
 
-  return getDiffDeepObjects(data1, data2);
+  const res = getDiffDeepObjects(data1, data2);
+  console.log(res);
+  return res;
 };

@@ -1,3 +1,5 @@
+import stylish from './stylish.js';
+
 export default (data1, data2) => {
   const data2Copy = { ...data2 };
   const list = [];
@@ -20,18 +22,5 @@ export default (data1, data2) => {
     list.push({ key, value, sign: false });
   });
 
-  list.sort((a, b) => a.key > b.key ? 1 : -1);
-
-  const listToString = list.reduce((acc, { key, value, sign }) => {
-    let signSymbol = '+';
-    if (!sign) {
-      signSymbol = sign === false ? '-' : ' ';
-    }
-
-    // eslint-disable-next-line no-param-reassign
-    acc += ` ${signSymbol} ${key}: ${value}\n`;
-    return acc;
-  }, '');
-
-  return `{\n${listToString}}`;
+  return stylish(list);
 };
