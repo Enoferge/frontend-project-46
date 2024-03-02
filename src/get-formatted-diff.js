@@ -1,12 +1,10 @@
 import getDiff from './get-diff.js';
-import stylish from './stylish.js';
+import getFormatter from './formatters/index.js';
+import { FORMATTERS } from './constants.js';
 
-export default (data1, data2, format) => {
+export default (data1, data2, format = FORMATTERS.STYLISH) => {
   const diff = getDiff(data1, data2);
+  const formatter = getFormatter(format);
 
-  if (!format) {
-    return stylish(diff);
-  }
-
-  return diff;
+  return formatter(diff);
 };

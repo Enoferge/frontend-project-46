@@ -1,3 +1,12 @@
+import { ACTIONS } from './constants.js';
+
+const getSortedFields = (fields) => [...fields].sort((a, b) => {
+  if (a.key === b.key) {
+    return a.action ? 1 : -1;
+  }
+  return a.key > b.key ? 1 : -1;
+});
+
 export default (deepData1, deepData2) => {
   const isValueObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
 
@@ -13,24 +22,26 @@ export default (deepData1, deepData2) => {
         return {
           key,
           value: getPreparedValue(value),
-          sign: false,
+          action: ACTIONS.REMOVED,
         };
       }
 
       delete data2Copy[key];
 
       if (isValueObject(value) && isValueObject(value2)) {
-        return { key, value: iter(value, value2), sign: undefined };
+        return { key, value: iter(value, value2), action: ACTIONS.UNCHANCHED };
       }
 
       if (value2 === value) {
-        return [{ key, value, sign: undefined }];
+        return { key, value, action: ACTIONS.UNCHANCHED };
       }
 
-      return [
-        { key, value: getPreparedValue(value), sign: false },
-        { key, value: getPreparedValue(value2), sign: true },
-      ];
+      return {
+        key,
+        action: ACTIONS.UPDATED,
+        value: getPreparedValue(value2),
+        oldValue: getPreparedValue(value),
+      };
     });
 
     // add fields only second file has
@@ -41,12 +52,12 @@ export default (deepData1, deepData2) => {
         list.push({
           key,
           value: getPreparedValue(value),
-          sign: true,
+          action: ACTIONS.ADDED,
         });
       });
     }
 
-    return list;
+    return getSortedFields(list);
   };
 
   return iter(deepData1, deepData2);
