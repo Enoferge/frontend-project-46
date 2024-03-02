@@ -11,13 +11,13 @@ const resultExpected = `{
 }`;
 
 test('test JSON files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file1.json'), getAbsFixturePath('file2.json'), 'stylish')).toEqual(resultExpected);
+  expect(getDiffFiles(getAbsFixturePath('file1.json'), getAbsFixturePath('file2.json'))).toEqual(resultExpected);
 });
 
 test('test yaml files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file1.yaml'), getAbsFixturePath('file2.yaml'), 'stylish')).toEqual(resultExpected);
+  expect(getDiffFiles(getAbsFixturePath('file1.yaml'), getAbsFixturePath('file2.yaml'))).toEqual(resultExpected);
 });
 
 test('test yml files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file1.yml'), getAbsFixturePath('file2.yml'), 'stylish')).toEqual(resultExpected);
+  expect(getDiffFiles(getAbsFixturePath('file1.yml'), getAbsFixturePath('file2.yml'))).toEqual(resultExpected);
 });

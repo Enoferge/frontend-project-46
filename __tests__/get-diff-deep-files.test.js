@@ -47,11 +47,11 @@ const resultExpected = `{
 }`;
 
 test('test deep JSON files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json'), 'stylish'))
+  expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json')))
     .toEqual(resultExpected);
 });
 
 test('test deep YAML files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file-deep1.yaml'), getAbsFixturePath('file-deep2.yaml'), 'stylish'))
+  expect(getDiffFiles(getAbsFixturePath('file-deep1.yaml'), getAbsFixturePath('file-deep2.yaml')))
     .toEqual(resultExpected);
 });

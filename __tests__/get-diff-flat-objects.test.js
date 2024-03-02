@@ -1,4 +1,4 @@
-import getDiff from '../src/get-diff.js';
+import getFormattedDiff from '../src/get-formatted-diff.js';
 
 const object1 = {
   timeout: 20,
@@ -37,9 +37,9 @@ const resultExpected2 = `{
 }`;
 
 test('get diff default objects', () => {
-  expect(getDiff(object1, object2)).toEqual(resultExpected1);
+  expect(getFormattedDiff(object1, object2)).toEqual(resultExpected1);
 });
 
 test('get diff objects, first is empty', () => {
-  expect(getDiff(object3, object4)).toEqual(resultExpected2);
+  expect(getFormattedDiff(object3, object4)).toEqual(resultExpected2);
 });
