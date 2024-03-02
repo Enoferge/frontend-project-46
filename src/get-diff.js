@@ -1,5 +1,3 @@
-import stylish from './stylish.js';
-
 export default (deepData1, deepData2) => {
   const isValueObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
 
@@ -51,7 +49,5 @@ export default (deepData1, deepData2) => {
     return list;
   };
 
-  const result = iter(deepData1, deepData2);
-
-  return stylish(result);
+  return iter(deepData1, deepData2);
 };

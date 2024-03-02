@@ -10,10 +10,10 @@ program
   .version('0.1.0')
   .helpOption('-h, --help', 'output usage information')
   .arguments('<filepath1> <filepath2>')
-  .option('-f, --format <type>', 'output format')
-  .action((filepath1, filepath2) => {
-    const result = getDiffFiles(filepath1, filepath2);
-    console.log(result);
+  .option('-f, --format <type>', 'output format', 'stylish')
+  .action((filepath1, filepath2, { format }) => {
+    const diff = getDiffFiles(filepath1, filepath2, format)
+    console.log(diff)
   });
 
 program.parse();
