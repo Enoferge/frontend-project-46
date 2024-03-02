@@ -1,18 +1,45 @@
-export default (list) => {
-  console.log('stylish');
-  console.log(list);
-  list.sort((a, b) => a.key > b.key ? 1 : -1);
+export default (diffObject) => {
+  const indent = ' '.repeat(4);
+  const iter = (diff, deep) => {
+    const sortedDiff = getSortedFields(diff);
+    const diffToString = sortedDiff.reduce((acc, { key, value, sign }) => {
+      const indentsAfter = indent.repeat(deep);
+      const indentsBefore = `${indentsAfter.slice(0, -2)}${getSignSymbol(sign)} `
+      let stringValue;
 
-  const listToString = list.reduce((acc, { key, value, sign }) => {
-    let signSymbol = '+';
-    if (!sign) {
-      signSymbol = sign === false ? '-' : ' ';
-    }
+      if (Array.isArray(value)) {
+        stringValue =`{\n${iter(value, deep + 1)}${indentsAfter}}\n`;
+      } else {
+        stringValue =`${value}\n`;
+      }
 
-    // eslint-disable-next-line no-param-reassign
-    acc += ` ${signSymbol} ${key}: ${value}\n`;
-    return acc;
-  }, '');
+      acc += `${indentsBefore}${key}: ${stringValue}`;
 
-  return `{\n${listToString}}`;
+      return acc;
+    }, '');
+
+    return diffToString;
+  };
+
+  return `{\n${iter(diffObject, 1)}}`;
 };
+
+const getSortedFields = (fields) => {
+  return [...fields].sort((a, b) => {
+    if (a.key === b.key) {
+      return a.sign ? 1 : -1;
+    }
+    return a.key > b.key ? 1 : -1;
+  });
+}
+
+const getSignSymbol = (sign) => {
+  switch(sign) {
+    case true:
+      return '+'
+    case false:
+      return '-'
+    default:
+      return ' '
+  }
+}

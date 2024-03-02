@@ -13,8 +13,15 @@ rules:
     - ignorePackages
     - js: always
   no-confusing-arrow: [
-      "error",
-      { "allowParens": true, "onlyOneSimpleParam": true }
+    "error",
+    { "allowParens": true, "onlyOneSimpleParam": true }
   ]
+  no-param-reassign: [
+    "error",
+    {
+      "props": true,
+      "ignorePropertyModificationsFor": ["accu"]
+    }
+  ],
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }] # allow doubled underline for two constants
   linebreak-style: 0 

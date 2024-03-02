@@ -1,8 +1,6 @@
 import { Command } from 'commander';
 
-// import getDiff from './src/get-diff-flat-files.js';
-import getDiff from './src/get-diff-deep-files.js';
-
+import getDiffFiles from './src/get-diff-files.js';
 
 const program = new Command();
 
@@ -14,9 +12,8 @@ program
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format <type>', 'output format')
   .action((filepath1, filepath2) => {
-    const result = getDiff(filepath1, filepath2);
-    console.log('RESULT')
-    console.log(JSON.stringify(result));
+    const result = getDiffFiles(filepath1, filepath2);
+    console.log(result);
   });
 
 program.parse();
