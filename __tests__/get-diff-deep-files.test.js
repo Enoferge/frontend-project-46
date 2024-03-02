@@ -1,8 +1,7 @@
 import getDiffFiles from '../src/get-diff-files.js';
 import getAbsFixturePath from '../helpers/get-abs-fixture-path.js';
 
-const resultExpected = 
-`{
+const resultExpected = `{
     common: {
       + follow: false
         setting1: Value 1
@@ -48,9 +47,11 @@ const resultExpected =
 }`;
 
 test('test deep JSON files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json'))).toEqual(resultExpected);
+  expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json')))
+    .toEqual(resultExpected);
 });
 
-// test('test deep YAML files diff', () => {
-//   expect(getDiffDeepFiles(getAbsFixturePath('file-deep1.yaml'), getAbsFixturePath('file-deep2.yaml'))).toEqual(resultExpected);
-// });
+test('test deep YAML files diff', () => {
+  expect(getDiffFiles(getAbsFixturePath('file-deep1.yaml'), getAbsFixturePath('file-deep2.yaml')))
+    .toEqual(resultExpected);
+});

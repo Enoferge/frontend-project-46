@@ -8,6 +8,8 @@ export default (filePath1, filePath2, format) => {
   const diff = getDiff(data1, data2);
 
   if (format === 'stylish') {
-    return stylish(diff)
+    return stylish(diff);
   }
+
+  return diff;
 };

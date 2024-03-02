@@ -13,8 +13,7 @@ const object2 = {
   follow: false,
 };
 
-const resultExpected1 =
-`{
+const resultExpected1 = `{
   + follow: false
     host: hexlet.io
   + proxy: 123.234.53.22

@@ -1,8 +1,7 @@
 import getDiffFiles from '../src/get-diff-files.js';
 import getAbsFixturePath from '../helpers/get-abs-fixture-path.js';
 
-const resultExpected =
-`{
+const resultExpected = `{
   + follow: false
     host: hexlet.io
   + proxy: 123.234.53.22

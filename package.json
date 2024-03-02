@@ -5,7 +5,8 @@
   "description": "project 3",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "lint": "eslint --fix --ext .js ."
   },
   "repository": {
     "type": "git",
