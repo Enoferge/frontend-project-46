@@ -8,22 +8,19 @@ export default (deepData1, deepData2) => {
   const isValueObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
 
   const iter = (data1, data2) => {
-    const data2Copy = { ...data2 };
     const getPreparedValue = (value) => (isValueObject(value) ? iter(value, value) : value);
 
     const list = Object.entries(data1).flatMap(([key, value]) => {
-      const value2 = data2Copy[key];
+      const value2 = data2[key];
 
       // if second file has no field
-      if (!Object.hasOwn(data2Copy, key)) {
+      if (!Object.hasOwn(data2, key)) {
         return {
           key,
           value: getPreparedValue(value),
           action: ACTIONS.REMOVED,
         };
       }
-
-      delete data2Copy[key];
 
       if (isValueObject(value) && isValueObject(value2)) {
         return { key, value: iter(value, value2), action: ACTIONS.UNCHANCHED };
@@ -42,7 +39,7 @@ export default (deepData1, deepData2) => {
     });
 
     // add fields only second file has
-    const entriesRemained = Object.entries(data2Copy);
+    const entriesRemained = Object.entries(data2).filter(([key]) => !Object.hasOwn(data1, key));
 
     if (entriesRemained.length) {
       const remainedFields = entriesRemained.map(([key, value]) => (
