@@ -27,4 +27,4 @@ try {
   console.error(err);
 }
 
-export default getDiffFiles;
+export default program;

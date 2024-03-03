@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "project 3",
-  "main": "gendiff.js",
+  "main": "src/get-diff-files.js",
   "scripts": {
     "test": "npx jest",
     "lint": "eslint --fix --ext .js ."
