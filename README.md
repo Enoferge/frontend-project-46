@@ -10,3 +10,5 @@ https://asciinema.org/a/gMlGLdAiIsfvpij1QkHIrPwRM
 https://asciinema.org/a/zOcxnxzMIGD7P4UMxVbT9EkcB
 * Asciinema for deep json structures:
 https://asciinema.org/a/hJwRNKY8aOzwb5vqQVeIXG4WY 
+* Asciinema for plain formatter:
+https://asciinema.org/a/hop9JaXi13S9f509djpNeCdb6
