@@ -4,6 +4,9 @@ install:
 lint:
 	npx eslint .
 
+gendiff:
+	npm link
+
 test:
 	npm test
 

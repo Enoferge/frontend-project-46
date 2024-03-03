@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import getDiffFiles from '../src/index.js';
+import getDiff from '../src/index.js';
 import { FORMATTERS } from '../src/constants.js';
 
 const program = new Command();
@@ -13,12 +13,11 @@ program
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format <type>', 'output format', FORMATTERS.STYLISH)
   .action((filepath1, filepath2, { format }) => {
-    const diff = getDiffFiles(
+    console.log(getDiff(
       filepath1,
       filepath2,
       format,
-    );
-    console.log(diff);
+    ));
   });
 
 try {
