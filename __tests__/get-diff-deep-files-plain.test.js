@@ -15,7 +15,7 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]
 `;
 
-test('test deep JSON files diff', () => {
+test('test deep JSON files diff with plain format', () => {
   expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json'), FORMATTERS.PLAIN))
     .toEqual(resultExpected);
 });
