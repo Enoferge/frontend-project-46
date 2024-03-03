@@ -2,12 +2,7 @@ import _ from 'lodash';
 
 import { ACTIONS } from './constants.js';
 
-const getSortedFields = (fields) => _.sort(fields, ((a, b) => {
-  if (a.key === b.key) {
-    return a.action ? 1 : -1;
-  }
-  return a.key > b.key ? 1 : -1;
-}));
+const getSortedFields = (fields) => _.sortBy(fields, ['key'], ['asc']);
 
 export default (deepData1, deepData2) => {
   const isValueObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);

@@ -29,9 +29,10 @@ export default (diffObject) => {
     const currentPath = [...path, key];
 
     if (Array.isArray(value) && action === ACTIONS.UNCHANCHED) {
-      acc.concat(iter(value, currentPath));
-    } else if (action !== ACTIONS.UNCHANCHED) {
-      acc.concat(`Property '${currentPath.join('.')}' was ${getLine(action, value, oldValue)}\n`);
+      return acc.concat(iter(value, currentPath));
+    }
+    if (action !== ACTIONS.UNCHANCHED) {
+      return acc.concat(`Property '${currentPath.join('.')}' was ${getLine(action, value, oldValue)}\n`);
     }
 
     return acc;

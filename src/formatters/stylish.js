@@ -19,13 +19,9 @@ export default (diffObject) => {
     };
 
     if (action === ACTIONS.UPDATED) {
-      acc.concat(getLine(oldValue, ACTIONS.REMOVED));
-      acc.concat(getLine(value, ACTIONS.ADDED));
-    } else {
-      acc.concat(getLine(value, action));
+      return acc.concat(getLine(oldValue, ACTIONS.REMOVED), getLine(value, ACTIONS.ADDED));
     }
-
-    return acc;
+    return acc.concat(getLine(value, action));
   }, '');
 
   return `{\n${iter(diffObject, 1)}}`;
