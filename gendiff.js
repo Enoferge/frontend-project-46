@@ -21,6 +21,10 @@ program
     console.log(diff);
   });
 
-program.parse();
+try {
+  program.parse();
+} catch (err) {
+  console.error(err);
+}
 
 export default program;
