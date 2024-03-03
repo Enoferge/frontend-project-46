@@ -8,6 +8,7 @@ export const ACTIONS = {
 export const FORMATTERS = {
   STYLISH: 'stylish',
   PLAIN: 'plain',
+  JSON: 'json',
 };
 
 export const getActionSymbol = (action) => {

@@ -1,0 +1,152 @@
+[
+  {
+    "key": "common",
+    "value": [
+      {
+        "key": "follow",
+        "value": false,
+        "action": "ADDED"
+      },
+      {
+        "key": "setting1",
+        "value": "Value 1",
+        "action": "UNCHANGED"
+      },
+      {
+        "key": "setting2",
+        "value": 200,
+        "action": "REMOVED"
+      },
+      {
+        "key": "setting3",
+        "action": "UPDATED",
+        "value": null,
+        "oldValue": true
+      },
+      {
+        "key": "setting4",
+        "value": "blah blah",
+        "action": "ADDED"
+      },
+      {
+        "key": "setting5",
+        "value": [
+          {
+            "key": "key5",
+            "value": "value5",
+            "action": "UNCHANGED"
+          }
+        ],
+        "action": "ADDED"
+      },
+      {
+        "key": "setting6",
+        "value": [
+          {
+            "key": "doge",
+            "value": [
+              {
+                "key": "wow",
+                "action": "UPDATED",
+                "value": "so much",
+                "oldValue": ""
+              }
+            ],
+            "action": "UNCHANGED"
+          },
+          {
+            "key": "key",
+            "value": "value",
+            "action": "UNCHANGED"
+          },
+          {
+            "key": "ops",
+            "value": "vops",
+            "action": "ADDED"
+          }
+        ],
+        "action": "UNCHANGED"
+      }
+    ],
+    "action": "UNCHANGED"
+  },
+  {
+    "key": "group1",
+    "value": [
+      {
+        "key": "baz",
+        "action": "UPDATED",
+        "value": "bars",
+        "oldValue": "bas"
+      },
+      {
+        "key": "foo",
+        "value": "bar",
+        "action": "UNCHANGED"
+      },
+      {
+        "key": "nest",
+        "action": "UPDATED",
+        "value": "str",
+        "oldValue": [
+          {
+            "key": "key",
+            "value": "value",
+            "action": "UNCHANGED"
+          }
+        ]
+      }
+    ],
+    "action": "UNCHANGED"
+  },
+  {
+    "key": "group2",
+    "value": [
+      {
+        "key": "abc",
+        "value": 12345,
+        "action": "UNCHANGED"
+      },
+      {
+        "key": "deep",
+        "value": [
+          {
+            "key": "id",
+            "value": 45,
+            "action": "UNCHANGED"
+          }
+        ],
+        "action": "UNCHANGED"
+      }
+    ],
+    "action": "REMOVED"
+  },
+  {
+    "key": "group3",
+    "value": [
+      {
+        "key": "deep",
+        "value": [
+          {
+            "key": "id",
+            "value": [
+              {
+                "key": "number",
+                "value": 45,
+                "action": "UNCHANGED"
+              }
+            ],
+            "action": "UNCHANGED"
+          }
+        ],
+        "action": "UNCHANGED"
+      },
+      {
+        "key": "fee",
+        "value": 100500,
+        "action": "UNCHANGED"
+      }
+    ],
+    "action": "ADDED"
+  }
+]
