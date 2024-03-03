@@ -12,3 +12,5 @@ https://asciinema.org/a/zOcxnxzMIGD7P4UMxVbT9EkcB
 https://asciinema.org/a/hJwRNKY8aOzwb5vqQVeIXG4WY 
 * Asciinema for plain formatter:
 https://asciinema.org/a/hop9JaXi13S9f509djpNeCdb6
+* Asciinema for json formatter:
+https://asciinema.org/a/k7WZvZWna2ZYp4S3xSN8amaJ1
