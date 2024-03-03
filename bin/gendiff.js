@@ -1,7 +1,7 @@
+#!/usr/bin/env node
 import { Command } from 'commander';
-
-import getDiffFiles from './src/get-diff-files.js';
-import { FORMATTERS } from './src/constants.js';
+import getDiffFiles from '../src/index.js';
+import { FORMATTERS } from '../src/constants.js';
 
 const program = new Command();
 
@@ -26,5 +26,3 @@ try {
 } catch (err) {
   console.error(err);
 }
-
-export default program;

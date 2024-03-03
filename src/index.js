@@ -5,5 +5,7 @@ export default (filePath1, filePath2, format) => {
   const data1 = parser(filePath1);
   const data2 = parser(filePath2);
 
-  return getFormattedDiff(data1, data2, format);
+  const result = getFormattedDiff(data1, data2, format);
+  console.log(result);
+  return result;
 };

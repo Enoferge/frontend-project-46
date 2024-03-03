@@ -1,4 +1,4 @@
-import getDiffFiles from '../src/get-diff-files.js';
+import getDiff from '../src/index.js';
 import getAbsFixturePath from '../helpers/get-abs-fixture-path.js';
 import { FORMATTERS } from '../src/constants.js';
 
@@ -15,6 +15,6 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`;
 
 test('test deep JSON files diff with plain format', () => {
-  expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json'), FORMATTERS.PLAIN))
+  expect(getDiff(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json'), FORMATTERS.PLAIN))
     .toEqual(resultExpected);
 });

@@ -1,4 +1,4 @@
-import getDiffFiles from '../src/get-diff-files.js';
+import getDiff from '../src/index.js';
 import getAbsFixturePath from '../helpers/get-abs-fixture-path.js';
 
 const resultExpected = `{
@@ -11,13 +11,13 @@ const resultExpected = `{
 }`;
 
 test('test JSON files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file1.json'), getAbsFixturePath('file2.json'))).toEqual(resultExpected);
+  expect(getDiff(getAbsFixturePath('file1.json'), getAbsFixturePath('file2.json'))).toEqual(resultExpected);
 });
 
 test('test yaml files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file1.yaml'), getAbsFixturePath('file2.yaml'))).toEqual(resultExpected);
+  expect(getDiff(getAbsFixturePath('file1.yaml'), getAbsFixturePath('file2.yaml'))).toEqual(resultExpected);
 });
 
 test('test yml files diff', () => {
-  expect(getDiffFiles(getAbsFixturePath('file1.yml'), getAbsFixturePath('file2.yml'))).toEqual(resultExpected);
+  expect(getDiff(getAbsFixturePath('file1.yml'), getAbsFixturePath('file2.yml'))).toEqual(resultExpected);
 });
