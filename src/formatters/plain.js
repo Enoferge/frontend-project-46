@@ -38,5 +38,5 @@ export default (diffObject) => {
     return res;
   }, '');
 
-  return iter(diffObject, []);
+  return iter(diffObject, []).trim();
 };
