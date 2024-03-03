@@ -8,12 +8,8 @@ export default (filePath) => {
   const preparedFilePath = path.resolve(cwd(), filePath);
   const data = readFileSync(preparedFilePath, 'utf-8');
 
-  let parse;
-
   if (['.yaml', '.yml'].includes(extension)) {
-    parse = yamlParser.load;
-  } else {
-    parse = JSON.parse;
+    return yamlParser.load(data);
   }
-  return parse(data);
+  return JSON.parse(data);
 };

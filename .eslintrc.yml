@@ -1,29 +1,29 @@
+---
+
+plugins:
+  - jest
+  - fp
+
+# https://eslint.org/docs/user-guide/configuring#specifying-environments
 env:
   node: true
-  es2021: true
-  jest: true
-extends: 
+
+extends:
   - 'airbnb-base'
   - 'plugin:jest/recommended'
+
 parserOptions:
   ecmaVersion: latest
-  sourceType: module
-rules: 
+
+rules:
   no-console: 0
   import/extensions: # FIXME: remove when rule will be adjusted for new nodejs version
     - error
     - ignorePackages
     - js: always
-  no-confusing-arrow: [
-    "error",
-    { "allowParens": true, "onlyOneSimpleParam": true }
-  ]
-  no-param-reassign: [
-    "error",
-    {
-      "props": true,
-      "ignorePropertyModificationsFor": ["accu"]
-    }
-  ]
-  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }] # allow doubled underline for two constants
-  linebreak-style: 0 
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
+  fp/no-mutation: warn
+  fp/no-let: warn
+  fp/no-mutating-methods:
+    - error
+    - allowedObjects: ['_', 'R', 'fp']

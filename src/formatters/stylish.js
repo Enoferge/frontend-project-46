@@ -6,7 +6,6 @@ export default (diffObject) => {
   const iter = (diff, deep) => diff.reduce((acc, {
     key, action, value, oldValue,
   }) => {
-    let res = acc;
     const indentsAfter = indent.repeat(deep);
 
     const getLine = (v, a) => {
@@ -20,13 +19,13 @@ export default (diffObject) => {
     };
 
     if (action === ACTIONS.UPDATED) {
-      res += getLine(oldValue, ACTIONS.REMOVED);
-      res += getLine(value, ACTIONS.ADDED);
+      acc.concat(getLine(oldValue, ACTIONS.REMOVED));
+      acc.concat(getLine(value, ACTIONS.ADDED));
     } else {
-      res += getLine(value, action);
+      acc.concat(getLine(value, action));
     }
 
-    return res;
+    return acc;
   }, '');
 
   return `{\n${iter(diffObject, 1)}}`;

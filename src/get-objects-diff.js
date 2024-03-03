@@ -1,11 +1,13 @@
+import _ from 'lodash';
+
 import { ACTIONS } from './constants.js';
 
-const getSortedFields = (fields) => [...fields].sort((a, b) => {
+const getSortedFields = (fields) => _.sort(fields, ((a, b) => {
   if (a.key === b.key) {
     return a.action ? 1 : -1;
   }
   return a.key > b.key ? 1 : -1;
-});
+}));
 
 export default (deepData1, deepData2) => {
   const isValueObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -48,13 +50,15 @@ export default (deepData1, deepData2) => {
     const entriesRemained = Object.entries(data2Copy);
 
     if (entriesRemained.length) {
-      entriesRemained.forEach(([key, value]) => {
-        list.push({
+      const remainedFields = entriesRemained.map(([key, value]) => (
+        {
           key,
           value: getPreparedValue(value),
           action: ACTIONS.ADDED,
-        });
-      });
+        }
+      ));
+
+      return getSortedFields([...list, ...remainedFields]);
     }
 
     return getSortedFields(list);
