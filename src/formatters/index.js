@@ -1,13 +1,13 @@
 import stylish from './stylish.js';
-// import plain from './plain.js';
+import plain from './plain.js';
+import { FORMATTERS } from '../constants.js';
 
 export default (format) => {
   switch (format) {
-    case 'stylish':
+    case FORMATTERS.STYLISH:
       return stylish;
-    case 'plain':
-      return () => {};
-      // return plain;
+    case FORMATTERS.PLAIN:
+      return plain;
     default:
       throw new Error('Invalid format!');
   }

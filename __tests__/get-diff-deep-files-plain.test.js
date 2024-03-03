@@ -1,8 +1,8 @@
 import getDiffFiles from '../src/get-diff-files.js';
 import getAbsFixturePath from '../helpers/get-abs-fixture-path.js';
+import { FORMATTERS } from '../src/constants.js';
 
-const resultExpected = `
-Property 'common.follow' was added with value: false
+const resultExpected = `Property 'common.follow' was added with value: false
 Property 'common.setting2' was removed
 Property 'common.setting3' was updated. From true to null
 Property 'common.setting4' was added with value: 'blah blah'
@@ -15,7 +15,7 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]
 `;
 
-// test('test deep JSON files diff', () => {
-//   expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json'), 'plain'))
-//     .toEqual(resultExpected);
-// });
+test('test deep JSON files diff', () => {
+  expect(getDiffFiles(getAbsFixturePath('file-deep1.json'), getAbsFixturePath('file-deep2.json'), FORMATTERS.PLAIN))
+    .toEqual(resultExpected);
+});

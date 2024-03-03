@@ -16,7 +16,7 @@ program
     const diff = getDiffFiles(
       filepath1,
       filepath2,
-      format === FORMATTERS.STYLISH ? undefined : format,
+      format,
     );
     console.log(diff);
   });
